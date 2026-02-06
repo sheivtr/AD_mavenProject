@@ -35,6 +35,20 @@ public class CrudDemo {
         System.out.println(" === ESTADO FINAL ===");
         dao.findAll().forEach(System.out::println);
 
+        /* BÚSQUEDA DE LIBROS */
+
+        System.out.println(" === SEARCH BY TITULO ===");
+
+        try (Scanner sc = new Scanner(System.in)) {
+
+            // Se pide al usuario el texto a buscar
+            System.out.print("Introduce texto a buscar en el título: ");
+            String textoBusqueda = sc.nextLine();
+
+            // Se llama a LibroDao pasando el texto introducido por el usuario
+            dao.searchByTitulo(textoBusqueda).forEach(System.out::println);
+        }
+
     }
 
 }
